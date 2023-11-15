@@ -1,0 +1,54 @@
+<!-- :mobile Menu: -->
+<div class="ct-menuMobile" th:fragment="menu">
+    <ul class="ct-menuMobile-navbar">
+        <li><a th:href="@{/index}">Home</a></li>
+        <li><a th:href="@{/shop}">Shop</a></li>
+        <li><a th:href="@{/about}">About</a></li>
+        <li><a th:href="@{/contact}">Contact Us</a></li>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" href="#" role="button" aria-expanded="true">
+                Shopping Cart <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu ct-dropdown-menu" style="padding: 0 30px 20px 30px"  th:if="${session.shoppingCart?.orderItems != null and session.shoppingCart.orderItems.size() > 0}" >
+                <li th:each="item: ${session.shoppingCart?.orderItems}" >
+                    <div class="row">
+                        <div class="col-sm-2 bg2 text-left section small   ct-u-borderLeftGrayLighter ct-u-borderBottom ct-u-paddingBoth5 ">
+                            <a th:text="${item.quantity}"></a>
+                        </div>
+                        <div class="col-sm-6 bg2 text-left section small   ct-u-borderBottom ct-u-paddingBoth5" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            <a th:text="${item.item.itemName}"></a>
+                        </div>
+                        <div class="col-sm-2 bg2 text-left section small   ct-u-borderBottom ct-u-paddingBoth5 ">
+                            <a th:text="${item.item.itemPrice * item.quantity}"></a>
+                        </div>
+                        <div class="col-sm-2 bg2 text-left section small   ct-u-borderBottom ct-u-borderRightGrayLighter ct-u-paddingBoth5 ">
+                            <form th:action="@{/shop}" method="post">
+                                <input type="hidden" name="removeItemId" th:value="${item.item.id}" />
+                                <button type="submit" style="border: 0; height: 33px; width: 27px"><i class="fa fa-trash-o"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<!--:mobile navbar: -->
+<div class="ct-navbarMobile" th:fragment="navbar">
+    <a class="navbar-brand" href="../index.html"><img th:src="@{/images/content/logo.png}" alt="FISHtank"> </a>
+    <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+</div>
+<div class="ct-navbarMobile ct-navbarMobile--header" th:fragment="navbar">
+    <div>
+        <a th:href="@{/account}">My Account</a>
+        <a th:href="@{/shop}" class="ct-shopIcon ct-navbar--right" style="padding-right: 25px">
+            <div class="fa fa-shopping-cart"></div>
+        </a>
+    </div>
+</div>

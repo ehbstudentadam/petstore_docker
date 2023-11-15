@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]>
+<html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="description" content="FishTank">
+    <meta name="author" content="CreateIT">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>FishTank</title>
+
+    <link rel="shortcut icon" th:href="@{/images/content/icon.ico}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+
+
+    <!--[if lt IE 9]>
+    <script th:src="@{/bootstrap/js/html5shiv.min.js}"></script>
+    <script th:src="@{/bootstrap/js/respond.min.js}"></script>
+    <![endif]-->
+
+    <script th:src="@{/js/modernizr.custom.js}"></script>
+
+</head>
+<body class="cssAnimate">
+
+<!-- :mobile Menu: -->
+<div th:replace="fragments/navbar-mobile-fragment :: menu"></div>
+
+<!--:mobile navbar: -->
+<div th:replace="fragments/navbar-mobile-fragment :: navbar"></div>
+
+<!--:wrapper: -->
+<div id="ct-js-wrapper" class="ct-pageWrapper">
+
+    <!-- :navbar: -->
+    <nav th:replace="fragments/navbar-normal-fragment"></nav>
+    <!--:header: -->
+    <header class="ct-headerMotive">
+        <div class="container">
+            <p class="text-uppercase">
+                <a th:href="@{/}">Home</a>
+                <i class="fa fa-chevron-right" style="padding: 10px 10px"></i>
+                <a th:href="@{/account}">Account</a><i class="fa fa-chevron-right" style="padding: 10px 10px"></i>Billing Address
+            </p>
+        </div>
+    </header>
+
+    <section class="ct-u-paddingBottom50">
+        <div class="container">
+
+
+            <div class="ct-sectionHeader ct-u-paddingBottom10">
+                <h2>My Account</h2>
+                <h3>Billing Address</h3>
+            </div>
+            <div class="row">
+
+                <div class="col-xs-offset-1 col-xs-10">
+
+                    <form method="post" th:action="@{#}">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="firstname" class="text-uppercase">First Name<span>*</span></label>
+                                    <br><span class="error custom-error" th:if="${#fields.hasErrors('userForm.firstName')}" th:errors="*{userForm.firstName}"></span>
+                                    <input required type="text" class="form-control" placeholder="" id="firstname" th:field="*{userForm.firstName}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="lastname" class="text-uppercase">Last Name<span>*</span></label>
+                                    <br><span class="error custom-error" th:if="${#fields.hasErrors('userForm.lastName')}" th:errors="*{userForm.lastName}"></span>
+                                    <input required type="text" class="form-control" placeholder="" id="lastname" th:field="*{userForm.lastName}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="country" class="text-uppercase">Country<span>*</span></label>
+                            <br><span class="error custom-error" th:if="${#fields.hasErrors('address.country')}" th:errors="*{address.country}"></span>
+                            <select required class="ct-select2-arrow form-control countrypicker" id="country"
+                                    th:field="*{address.country}">
+                            </select>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <label for="street" class="text-uppercase">Street Name<span>*</span></label>
+                                    <br><span class="error custom-error" th:if="${#fields.hasErrors('address.street')}" th:errors="*{address.street}"></span>
+                                    <input required type="text" class="form-control" placeholder="" id="street"
+                                           th:field="*{address.street}">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="streetnumber" class="text-uppercase">Street Number<span>*</span></label>
+                                    <br><span class="error custom-error" th:if="${#fields.hasErrors('address.streetNumber')}" th:errors="*{address.streetNumber}"></span>
+                                    <input required type="text" class="form-control" placeholder="" id="streetnumber"
+                                           th:field="*{address.streetNumber}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="city" class="text-uppercase">Town/City<span>*</span></label>
+                                    <br><span class="error custom-error" th:if="${#fields.hasErrors('address.city')}" th:errors="*{address.city}"></span>
+                                    <input required type="text" class="form-control" placeholder="" id="city"
+                                           th:field="*{address.city}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="zip" class="text-uppercase">Postcode/Zip<span>*</span></label>
+                                    <br><span class="error custom-error" th:if="${#fields.hasErrors('address.zip')}" th:errors="*{address.zip}"></span>
+                                    <input required type="text" class="form-control" placeholder="" id="zip"
+                                           th:field="*{address.zip}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button class="btn btn-motive" type="submit">
+                                Save Address <i class="fa fa-location-arrow"></i>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <div th:replace="fragments/footer-fragment :: logoslider"></div>
+
+    <div th:replace="fragments/footer-fragment :: footerlist"></div>
+
+    <div th:replace="fragments/footer-fragment :: pageup"></div>
+
+</div>
+
+<!-- JavaScripts -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery.easing.1.3.js}"></script>
+<script th:src="@{/js/device.min.js}"></script>
+<script th:src="@{/js/snap.min.js}"></script>
+
+<script th:src="@{/js/select2.js}"></script>
+<script> $(document).ready(function () {
+    $(".ct-select2-arrow").select2();
+}); </script>
+
+<script th:src="@{/js/logos/logo-FISHtank.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+
+<script th:src="@{/js/flexslider/jquery.flexslider-min.js}"></script>
+<script th:src="@{/js/flexslider/init.js}"></script>
+
+<script th:src="@{/js/bootstrap-select-country.min.js}"></script>
+
+
+</body>
+</html>

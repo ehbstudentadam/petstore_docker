@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]>
+<html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="description" content="FishTank">
+    <meta name="author" content="CreateIT">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>FishTank</title>
+
+    <link rel="shortcut icon" th:href="@{/images/icon.ico}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+
+
+    <!--[if lt IE 9]>
+    <script th:src="@{/bootstrap/js/html5shiv.min.js}"></script>
+    <script th:src="@{/bootstrap/js/respond.min.js}"></script>
+    <![endif]-->
+
+    <script th:src="@{/js/modernizr.custom.js}"></script>
+
+</head>
+<body class="cssAnimate">
+
+<!-- :mobile Menu: -->
+<div th:replace="fragments/navbar-mobile-fragment :: menu"></div>
+
+<!--:mobile navbar: -->
+<div th:replace="fragments/navbar-mobile-fragment :: navbar"></div>
+
+<!--:wrapper: -->
+<div id="ct-js-wrapper" class="ct-pageWrapper">
+
+    <!-- :navbar: -->
+    <nav th:replace="fragments/navbar-normal-fragment"></nav>
+    <!--:header: -->
+    <header class="ct-headerMotive">
+        <div class="container">
+            <p class="text-uppercase"><a th:href="@{/index}">Home</a><i class="fa fa-chevron-right"
+                                                                            style="padding: 10px 10px"></i>Register
+            </p>
+        </div>
+    </header>
+
+
+    <section class="ct-u-paddingBottom80">
+        <div class="container">
+
+
+            <div class="ct-sectionHeader ct-u-paddingBottom20">
+                <h2>Register</h2>
+            </div>
+
+
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-10">
+
+                    <div class="form-group">
+                        <label>Username or Email Address<span>*</span></label>
+                        <input required type="text" class="form-control" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password<span>*</span></label>
+                        <input required type="password" class="form-control" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="checkbox"><label class="ct-checkbox">Remember me</label>
+                        <a th:href="@{#}" class="pull-right"><span>Lost Your Password?</span></a>
+                    </div>
+
+                    <a class="btn btn-motive"><span>Login Now</span></a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div th:replace="fragments/footer-fragment :: logoslider"></div>
+
+    <div th:replace="fragments/footer-fragment :: footerlist"></div>
+
+    <div th:replace="fragments/footer-fragment :: pageup"></div>
+
+</div>
+
+<!-- JavaScripts -->
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery.easing.1.3.js}"></script>
+<script th:src="@{/js/device.min.js}"></script>
+<script th:src="@{/js/snap.min.js}"></script>
+
+<script th:src="@{/js/logos/logo-FISHtank.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+
+<script th:src="@{/js/flexslider/jquery.flexslider-min.js}"></script>
+<script th:src="@{/js/flexslider/init.js}"></script>
+
+
+</body>
+</html>

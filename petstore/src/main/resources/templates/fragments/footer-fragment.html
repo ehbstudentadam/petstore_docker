@@ -1,0 +1,80 @@
+<!-- ct class needed for background img  - logoslider - -->
+<div class="ct-logoSlider" th:fragment="logoslider">
+    <div class="container">
+        <div class="flexslider ct-js-flexslider ct-flexslider--margin25" data-controlnav="false" data-slideshow="true" data-maxitems="5"
+             data-move="1" data-itemwidth="202" data-itemmargin="25">
+            <ul class="slides">
+                <li class="ct-u-marginBoth40"><img th:src="@{/images/content/logo01.png}" alt="logo"></li>
+                <li class="ct-u-marginBoth40"><img th:src="@{/images/content/logo02.png}" alt="logo"></li>
+                <li class="ct-u-marginBoth40"><img th:src="@{/images/content/logo03.png}" alt="logo"></li>
+                <li class="ct-u-marginBoth40"><img th:src="@{/images/content/logo04.png}" alt="logo"></li>
+                <li class="ct-u-marginBoth40"><img th:src="@{/images/content/logo05.png}" alt="logo"></li>
+                <li class="ct-u-marginBoth40"><img th:src="@{/images/content/logo04.png}" alt="logo"></li>
+                <li class="ct-u-marginBoth40"><img th:src="@{/images/content/logo01.png}" alt="logo"></li>
+                <li class="ct-u-marginBoth40"><img th:src="@{/images/content/logo02.png}" alt="logo"></li>
+                <li class="ct-u-marginBoth40"><img th:src="@{/images/content/logo03.png}" alt="logo"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<section class="ct-footer-list ct-u-paddingBoth50" th:fragment="footerlist">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 col-xs-12">
+                <div class="ct-list ct-list--dark">
+                    <h5 class="text-uppercase ct-fw-600 ct-u-motiveBody">Information</h5>
+                    <ul class="ct-u-paddingTop10">
+                        <li><a href="#"><div class="ct-listTable"><div class="ct-ListDiamond"><i class="fa fa-chevron-right"></i></div></div><span>Specials</span></a></li>
+                        <li><a href="#"><div class="ct-listTable"><div class="ct-ListDiamond"><i class="fa fa-chevron-right"></i></div></div><span>New products</span></a></li>
+                        <li><a href="#"><div class="ct-listTable"><div class="ct-ListDiamond"><i class="fa fa-chevron-right"></i></div></div><span>Best Sellers</span></a></li>
+                        <li><a href="#"><div class="ct-listTable"><div class="ct-ListDiamond"><i class="fa fa-chevron-right"></i></div></div><span>Most Top Rated</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <div class="ct-list ct-list--dark">
+                    <h5 class="text-uppercase ct-fw-600 ct-u-motiveBody">My Account</h5>
+                    <ul class="ct-u-paddingTop10">
+                        <li><a href="#"><div class="ct-listTable"><div class="ct-ListDiamond"><i class="fa fa-chevron-right"></i></div></div><span>My Orders</span></a></li>
+                        <li><a href="#"><div class="ct-listTable"><div class="ct-ListDiamond"><i class="fa fa-chevron-right"></i></div></div><span>My Personal Info</span></a></li>
+                        <li><a href="#"><div class="ct-listTable"><div class="ct-ListDiamond"><i class="fa fa-chevron-right"></i></div></div><span>My Account</span></a></li>
+                        <li><a href="#"><div class="ct-listTable"><div class="ct-ListDiamond"><i class="fa fa-chevron-right"></i></div></div><span>My Addresses</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <div class="ct-list ct-list--dark">
+                    <h5 class="text-uppercase ct-fw-600 ct-u-motiveBody">Follow Us</h5>
+                    <ul class="ct-u-paddingTop10">
+                        <li><a href="https://www.facebook.com/createITpl"><div class="ct-listTable"><div class="ct-ListDiamond"><i class="fa fa-facebook"></i></div></div><span>Facebook</span></a></li>
+                        <li><a href="https://twitter.com/createitpl"><div class="ct-listTable"><div class="ct-ListDiamond"><i class="fa fa-twitter"></i></div></div><span>Twitter</span></a></li>
+                        <li><a href="#"><div class="ct-listTable"><div class="ct-ListDiamond"><i class="fa fa-rss"></i></div></div><span>RSS</span></a></li>
+                        <li><a href="#"><div class="ct-listTable"><div class="ct-ListDiamond"><i class="fa fa-linkedin"></i></div></div><span>Linkedin</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <div class="ct-list ct-list--dark">
+                    <h5 class="text-uppercase ct-fw-600 ct-u-motiveBody">Contact Us</h5>
+                    <ul class="ct-u-paddingTop10">
+                        <li><div class="ct-listTable"><div class="ct-ListDiamond"><i class="fa fa-home"></i></div></div><span>Street Name, Number 1234, Somewhere, Nowhere</span></li>
+                        <li><div class="ct-listTable"><div class="ct-ListDiamond"><i class="fa fa-phone"></i></div></div><span>(012) 345-6789</span></li>
+                        <li><a href="#"><div class="ct-listTable"><div class="ct-ListDiamond"><i class="fa fa-envelope"></i></div></div><span>info @ fishtanksupport.com</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- footer -->
+<footer class="ct-footer" th:fragment="pageup">
+    <div class="container">
+        <a href="http://outsourcing.createit.pl/"><p class="ct-u-motiveDark ct-u-paddingBoth10 ct-u-size14 ct-fw-600">COPYRIGHT © createIT 2014</p></a>
+    </div>
+</footer>
+
+<!-- Scroll Up Button -->
+<a class="ct-ScrollUpButton ct-js-btnScrollUp" href="#" th:fragment="pageup"><span class="ct-ScrollUpButton--motive"><i class="fa fa-angle-up"></i></span></a>

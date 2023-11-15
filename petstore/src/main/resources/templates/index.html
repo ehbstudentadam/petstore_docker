@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]>
+<html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="description" content="FishTank">
+    <meta name="author" content="CreateIT">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>FishTank</title>
+
+    <link rel="shortcut icon" th:href="@{/images/content/icon.ico}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+
+
+    <!--[if lt IE 9]>
+    <script th:src="@{bootstrap/js/html5shiv.min.js}"></script>
+    <script th:src="@{bootstrap/js/respond.min.js}"></script>
+    <![endif]-->
+
+    <script th:src="@{/js/modernizr.custom.js}"></script>
+
+</head>
+<body class="cssAnimate">
+
+<!-- :mobile Menu: -->
+<div th:replace="fragments/navbar-mobile-fragment :: menu"></div>
+
+<!--:mobile navbar: -->
+<div th:replace="fragments/navbar-mobile-fragment :: navbar"></div>
+
+<!--:wrapper: -->
+<div id="ct-js-wrapper" class="ct-pageWrapper">
+
+    <!-- :navbar: -->
+    <nav th:replace="fragments/navbar-normal-fragment"></nav>
+
+
+    <!-- main flexslider with white absolute container -->
+    <section class="flexslider ct-flexslider--mainSlider ct-u-marginBoth0 ct-js-flexslider" data-pauseonaction="false"
+             data-directionnav="true" data-animations="true" data-height="660" data-controlnav="true"
+             data-animationloop="true" data-controlscontainer="ct-containerAbsolute" data-slideshow="false">
+        <ul class="slides">
+            <li data-bg="/images/content/intro-01.jpg">
+                <div class="inner">
+                    <img style="width:auto;" th:src="@{/images/diamondOverlay.png}" alt="Tropical Aquarium Fishtank">
+                    <h3 class="text-center text-uppercase ct-fw-300 animated" data-fx="fadeInUp">Tropical <span
+                            class="ct-fw-500">Aquarium</span> Fishtank</h3>
+                </div>
+            </li>
+            <li data-bg="/images/content/intro-02.jpg">
+                <div class="inner">
+                    <img style="width:auto;" th:src="@{/images/diamondOverlay.png}" alt="Tropical Aquarium Fishtank">
+                    <h3 class="text-center text-uppercase ct-fw-300 animated" data-fx="fadeInUp">Tropical <span
+                            class="ct-fw-500">Aquarium</span> Fishtank</h3>
+                </div>
+            </li>
+            <li data-bg="/images/content/intro-03.jpg">
+                <div class="inner">
+                    <img style="width:auto;" th:src="@{/images/diamondOverlay.png}" alt="Tropical Aquarium Fishtank">
+                    <h3 class="text-center text-uppercase ct-fw-300 animated" data-fx="fadeInUp">Tropical <span
+                            class="ct-fw-500">Aquarium</span> Fishtank</h3>
+                </div>
+            </li>
+            <li data-bg="/images/content/intro-04.jpg">
+                <div class="inner">
+                    <img style="width:auto;" th:src="@{/images/diamondOverlay.png}" alt="Tropical Aquarium Fishtank">
+                    <h3 class="text-center text-uppercase ct-fw-300 animated" data-fx="fadeInUp">Tropical <span
+                            class="ct-fw-500">Aquarium</span> Fishtank</h3>
+                </div>
+            </li>
+        </ul>
+        <div class="ct-containerAbsolute">
+            <!--<div class="ct-borderLeft"></div>-->
+            <!--<div class="ct-borderRight"></div>-->
+            <div class="ct-flexslider-progress">
+                <div class="ct-flexslider-progressBar"></div>
+            </div>
+            <div class="ct-containerAbsolute-inside"></div>
+        </div>
+    </section>
+
+    <!-- title and text above categories-->
+    <div class="container ct-u-positionRelative">
+        <div class="ct-u-positionRelative">
+            <div class="ct-pageSectionHeader ct-offsetTop25 ct-u-borderBottomGrayLighter">
+                <h4 class="ct-fw-300 ct-u-size40 ct-u-paddingBottom20">A Necessity In Every
+                    <span>Aquarium's Life...</span></h4>
+                <div class="ct-u-paddingBottom40">
+                    <p class="text-justify">FishTank offers the ultimate pet shop experience. It really is a paradise
+                        for pets and pet owners. We have all the pet supplies, pet food, toys and accessories you and
+                        your pet need at great value prices. All our store colleagues are fully trained in pet care and
+                        dedicated to the welfare of your animals, with most of them being experienced pet owners. So
+                        when you are a new owner or an expert, our store colleagues are on hand to help you make the
+                        right choices. We also have a fantastic range of free, informative care for you to take away,
+                        offering help and advice on how to look after your pet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- categories slider (columns inside needs rename) -->
+    <section class="ct-u-paddingBottom100">
+        <div class="container">
+            <div class="flexslider ct-flexslider--arrowType2 ct-js-flexslider ct-flexslider--margin25 ct-flexslider-col4"
+                 data-controlnav="false" data-directionnav="true" data-animationloop="false" data-minitems="1"
+                 data-maxitems="4" data-move="1" data-itemwidth="267" data-itemmargin="25" data-slideshow="false">
+
+                <h4 class="ct-fw-600 ct-u-size24 ct-u-paddingBottom20 ct-u-paddingTop5 text-uppercase text-left ct-u-marginRight80">
+                    Fishes</h4>
+                <ul class="slides">
+                    <li th:each="item: ${animals}">
+                        <a th:href="${item.imageData[0].imageUrl}" class="ct-js-magnificPopupImage">
+                            <div class="ct-imageOverlay-container">
+                                <div class="ct-imageButton"></div>
+                                <img class="ct-u-motiveGrayLighter--bg" th:src="${item.imageData[0].imageUrl}"
+                                     alt="Saltwater Fish">
+                            </div>
+                        </a>
+                        <p class="ct-u-size17 ct-fw-600 text-center ct-u-paddingTop15 text-uppercase">Saltwater Fish</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- tab section -->
+    <section class="ct-u-motiveLight2--bg">
+        <div class="container">
+            <div class="ct-tabHeader ct-tabHeader--motive" role="tabpanel">
+                <ul class="list-unstyled text-uppercase ct-fw-600" role="tablist">
+                    <li role="presentation" class="active">
+                        <div class="ct-tabBorder"><a th:href="@{#new-arrivals}" role="tab" data-toggle="tab">New Arrivals</a>
+                        </div>
+                        <div class="mini-triangle"></div>
+                    </li>
+                    <li role="presentation">
+                        <div class="ct-tabBorder"><a th:href="@{#most-popular}" role="tab" data-toggle="tab">Most popular</a>
+                        </div>
+                        <div class="mini-triangle"></div>
+                    </li>
+                    <li role="presentation">
+                        <div class="ct-tabBorder"><a th:href="@{#best-sellers}" role="tab" data-toggle="tab">Best sellers</a>
+                        </div>
+                        <div class="mini-triangle"></div>
+                    </li>
+                    <li role="presentation">
+                        <div class="ct-tabBorder"><a th:href="@{#most-top-rated}" role="tab" data-toggle="tab">Most Top
+                            Rated</a></div>
+                        <div class="mini-triangle"></div>
+                    </li>
+                    <li role="presentation">
+                        <div class="ct-tabBorder"><a th:href="@{#most-viewed}" role="tab" data-toggle="tab">Most Viewed</a>
+                        </div>
+                        <div class="mini-triangle"></div>
+                    </li>
+                    <li role="presentation">
+                        <div class="ct-tabBorder"><a th:href="@{#all-types}" role="tab" data-toggle="tab">All types</a></div>
+                        <div class="mini-triangle"></div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tab panes -->
+            <div class="tab-content ct-u-paddingBottom80">
+                <div role="tabpanel" class="tab-pane active" id="new-arrivals">
+                    <div class="row ct-u-paddingTop20">
+                        <div class="ct-product animated fadeIn">
+                            <div class="col-sm-4 col-xs-12 ct-u-paddingTop40" th:each="item, iterStat: ${animals.subList(0, 3)}">
+                                <a th:href="@{/shop}">
+                                    <div class="ct-imgWrapper">
+                                        <div class="ct-product-circle ct-product-circle--sale ">Sale</div>
+                                        <div class="ct-starRating">
+                                            <span th:if="${item.itemRating > 0 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 0 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 1 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 1 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 2 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 2 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 3 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 3 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 4 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 4 }"><i class="fa-star-empty"></i></span>
+                                        </div>
+                                        <div class="ct-shopIcon"><i class="fa fa-shopping-cart"></i></div>
+                                        <h5 class="ct-imgWrapper-name ct-u-size24" style="color: white" th:text="${item.itemName}"></h5>
+                                        <img th:src="${item.imageData[0].imageUrl}" th:alt="${item.itemName}">
+                                        <div class="ct-imgWrapper-triangle"></div>
+                                    </div>
+                                </a>
+                                <p class="ct-u-paddingTop30" th:text="${item.itemDetails}"></p>
+                                <span class="ct-fw-600 ct-u-motiveDark ct-u-size30" th:text="'$' + ${item.itemPrice}"></span>
+                                <a class="ct-fakeButton text-uppercase pull-right ct-u-motiveDark--bg">In stock</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="most-popular">
+                    <div class="row ct-u-paddingTop20">
+                        <div class="ct-product animated fadeIn">
+                            <div class="col-sm-4 col-xs-12 ct-u-paddingTop40" th:each="item, iterStat: ${animals.subList(0, 3)}">
+                                <a th:href="@{/shop}">
+                                    <div class="ct-imgWrapper">
+                                        <div class="ct-product-circle ct-product-circle--sale ">Sale</div>
+                                        <div class="ct-starRating">
+                                            <span th:if="${item.itemRating > 0 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 0 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 1 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 1 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 2 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 2 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 3 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 3 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 4 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 4 }"><i class="fa-star-empty"></i></span>
+                                        </div>
+                                        <div class="ct-shopIcon"><i class="fa fa-shopping-cart"></i></div>
+                                        <h5 class="ct-imgWrapper-name ct-u-size24" style="color: white" th:text="${item.itemName}"></h5>
+                                        <img th:src="${item.imageData[0].imageUrl}" th:alt="${item.itemName}">
+                                        <div class="ct-imgWrapper-triangle"></div>
+                                    </div>
+                                </a>
+                                <p class="ct-u-paddingTop30" th:text="${item.itemDetails}"></p>
+                                <span class="ct-fw-600 ct-u-motiveDark ct-u-size30" th:text="'$' + ${item.itemPrice}"></span>
+                                <a class="ct-fakeButton text-uppercase pull-right ct-u-motiveDark--bg">In stock</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="best-sellers">
+                    <div class="row ct-u-paddingTop20">
+                        <div class="ct-product animated fadeIn">
+                            <div class="col-sm-4 col-xs-12 ct-u-paddingTop40" th:each="item, iterStat: ${animals.subList(0, 3)}">
+                                <a th:href="@{/shop}">
+                                    <div class="ct-imgWrapper">
+                                        <div class="ct-product-circle ct-product-circle--sale ">Sale</div>
+                                        <div class="ct-starRating">
+                                            <span th:if="${item.itemRating > 0 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 0 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 1 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 1 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 2 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 2 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 3 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 3 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 4 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 4 }"><i class="fa-star-empty"></i></span>
+                                        </div>
+                                        <div class="ct-shopIcon"><i class="fa fa-shopping-cart"></i></div>
+                                        <h5 class="ct-imgWrapper-name ct-u-size24" style="color: white" th:text="${item.itemName}"></h5>
+                                        <img th:src="${item.imageData[0].imageUrl}" th:alt="${item.itemName}">
+                                        <div class="ct-imgWrapper-triangle"></div>
+                                    </div>
+                                </a>
+                                <p class="ct-u-paddingTop30" th:text="${item.itemDetails}"></p>
+                                <span class="ct-fw-600 ct-u-motiveDark ct-u-size30" th:text="'$' + ${item.itemPrice}"></span>
+                                <a class="ct-fakeButton text-uppercase pull-right ct-u-motiveDark--bg">In stock</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="most-top-rated">
+                    <div class="row ct-u-paddingTop20">
+                        <div class="ct-product animated fadeIn">
+                            <div class="col-sm-4 col-xs-12 ct-u-paddingTop40" th:each="item, iterStat: ${animals.subList(0, 3)}">
+                                <a th:href="@{/shop}">
+                                    <div class="ct-imgWrapper">
+                                        <div class="ct-product-circle ct-product-circle--sale ">Sale</div>
+                                        <div class="ct-starRating">
+                                            <span th:if="${item.itemRating > 0 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 0 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 1 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 1 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 2 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 2 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 3 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 3 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 4 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 4 }"><i class="fa-star-empty"></i></span>
+                                        </div>
+                                        <div class="ct-shopIcon"><i class="fa fa-shopping-cart"></i></div>
+                                        <h5 class="ct-imgWrapper-name ct-u-size24" style="color: white" th:text="${item.itemName}"></h5>
+                                        <img th:src="${item.imageData[0].imageUrl}" th:alt="${item.itemName}">
+                                        <div class="ct-imgWrapper-triangle"></div>
+                                    </div>
+                                </a>
+                                <p class="ct-u-paddingTop30" th:text="${item.itemDetails}"></p>
+                                <span class="ct-fw-600 ct-u-motiveDark ct-u-size30" th:text="'$' + ${item.itemPrice}"></span>
+                                <a class="ct-fakeButton text-uppercase pull-right ct-u-motiveDark--bg">In stock</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="most-viewed">
+                    <div class="row ct-u-paddingTop20">
+                        <div class="ct-product animated fadeIn">
+                            <div class="col-sm-4 col-xs-12 ct-u-paddingTop40" th:each="item, iterStat: ${animals.subList(0, 3)}">
+                                <a th:href="@{/shop}">
+                                    <div class="ct-imgWrapper">
+                                        <div class="ct-product-circle ct-product-circle--sale ">Sale</div>
+                                        <div class="ct-starRating">
+                                            <span th:if="${item.itemRating > 0 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 0 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 1 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 1 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 2 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 2 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 3 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 3 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 4 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 4 }"><i class="fa-star-empty"></i></span>
+                                        </div>
+                                        <div class="ct-shopIcon"><i class="fa fa-shopping-cart"></i></div>
+                                        <h5 class="ct-imgWrapper-name ct-u-size24" style="color: white" th:text="${item.itemName}"></h5>
+                                        <img th:src="${item.imageData[0].imageUrl}" th:alt="${item.itemName}">
+                                        <div class="ct-imgWrapper-triangle"></div>
+                                    </div>
+                                </a>
+                                <p class="ct-u-paddingTop30" th:text="${item.itemDetails}"></p>
+                                <span class="ct-fw-600 ct-u-motiveDark ct-u-size30" th:text="'$' + ${item.itemPrice}"></span>
+                                <a class="ct-fakeButton text-uppercase pull-right ct-u-motiveDark--bg">In stock</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="all-types">
+                    <div class="row ct-u-paddingTop20">
+                        <div class="ct-product animated fadeIn">
+                            <div class="col-sm-4 col-xs-12 ct-u-paddingTop40" th:each="item, iterStat: ${animals.subList(0, 3)}">
+                                <a th:href="@{/shop}">
+                                    <div class="ct-imgWrapper">
+                                        <div class="ct-product-circle ct-product-circle--sale ">Sale</div>
+                                        <div class="ct-starRating">
+                                            <span th:if="${item.itemRating > 0 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 0 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 1 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 1 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 2 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 2 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 3 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 3 }"><i class="fa-star-empty"></i></span>
+                                            <span th:if="${item.itemRating > 4 }"><i class="fa fa-star"></i></span>
+                                            <span th:if="${item.itemRating < 4 }"><i class="fa-star-empty"></i></span>
+                                        </div>
+                                        <div class="ct-shopIcon"><i class="fa fa-shopping-cart"></i></div>
+                                        <h5 class="ct-imgWrapper-name ct-u-size24" style="color: white" th:text="${item.itemName}"></h5>
+                                        <img th:src="${item.imageData[0].imageUrl}" th:alt="${item.itemName}">
+                                        <div class="ct-imgWrapper-triangle"></div>
+                                    </div>
+                                </a>
+                                <p class="ct-u-paddingTop30" th:text="${item.itemDetails}"></p>
+                                <span class="ct-fw-600 ct-u-motiveDark ct-u-size30" th:text="'$' + ${item.itemPrice}"></span>
+                                <a class="ct-fakeButton text-uppercase pull-right ct-u-motiveDark--bg">In stock</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ct-promoSection needed for mobile resize-->
+    <section class="ct-promoSection ct-u-paddingBottom100">
+        <div class="container">
+            <img class="ct-u-paddingBoth30" th:src="@{/images/content/promo.png}" alt="Patrick Star">
+            <div class="ct-pageSectionHeader ct-fw-300">
+                <h4 class="ct-fw-300 ct-u-marginBottom0">We Have <span>New Accessories</span></h4>
+                <h2><span>(012)</span> 345-6789</h2>
+                <a th:href="@{/shop}" class="btn btn-motive"><span>Purchase Now  <i
+                        class="fa fa-location-arrow"></i></span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- fish collections -->
+
+    <section class="ct-u-paddingTop50">
+        <div class="container">
+            <div class="row ct-collections">
+                <div class="col-md-4 ct-u-paddingBoth50">
+                    <div class="ct-pageSectionHeader"><h3>FISH <span>COLLECTIONS</span></h3>
+                        <a th:href="@{#}">
+                            <h4 class="ct-fw-300 ct-u-motiveLight ct-u-displayInline">See all Species</h4>
+                            <div class="ct-ListDiamond"><i class="fa fa-chevron-right"></i></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-8 ct-u-paddingBoth30">
+                    <div class="ct-flip-wrapper">
+
+                        <div class="col-sm-3 col-xs-6">
+                            <a th:href="@{404}">
+                                <div class="ct-flip-container">
+                                    <div class="ct-flipper">
+                                        <div class="ct-front"><img th:src="@{/images/content/collection-01.png}"
+                                                                   alt="Mini Burittowater Tacoshark"></div>
+                                        <div class="ct-back motive-bg"><h5>Mini Burittowater Tacoshark</h5></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <a th:href="@{404}">
+                                <div class="ct-flip-container">
+                                    <div class="ct-flipper">
+                                        <div class="ct-front"><img th:src="@{/images/content/collection-03.png}"
+                                                                   alt="The African Cichlid"></div>
+                                        <div class="ct-back motive-bg"><h5>The African Cichlid</h5></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <a th:href="@{404}">
+                                <div class="ct-flip-container">
+                                    <div class="ct-flipper">
+                                        <div class="ct-front"><img th:src="@{/images/content/collection-02.png}"
+                                                                   alt="Junglewater Predator"></div>
+                                        <div class="ct-back motive-bg"><h5>Junglewater Predator</h5></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <a th:href="@{404}">
+                                <div class="ct-flip-container">
+                                    <div class="ct-flipper">
+                                        <div class="ct-front"><img th:src="@{/images/content/collection-04.png}"
+                                                                   alt="Scary Fish"></div>
+                                        <div class="ct-back motive-bg"><h5>Scary Fish(?)</h5></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- needs rename STAT -->
+                <div class="col-md-12 ct-slideInRightSection pull-right ct-u-motiveLight2--bg ct-u-marginBoth50 animated"
+                     data-fx="bounceInRight ct-show">
+                    <div class="row ct-u-borderMotiveBottom">
+                        <div class="col-sm-3 ct-u-clearPadding"><img class="ct-img100"
+                                                                     th:src="@{/images/content/PetOfTheWeek.png}"
+                                                                     alt="Gourami"></div>
+                        <div class="col-sm-9 ct-u-motiveLight2--bg ct-u-paddingTop20 ct-u-paddingBottom10">
+                            <h4 class="ct-u-motiveDark ct-u-marginBottom10">Fish Of The Week</h4>
+                            <span class="motive text-uppercase ct-fw-600 ct-u-size18">Gourami Fish</span>
+                            <p class="ct-u-marginBottom10">Aliquam nec hendrerit ipsum, ac volutpat nulla. Nulla semper
+                                dignissim mauris, eget lobortis est finibus ac. Aliquam felis etau liberiomui, lacinia
+                                in facilisis quis, portitor id augue.
+                                Donec sem ante, pellentesque eu dapibus eu, auctor quis magna. </p>
+                            <a class="btn btn-motive text-uppercase ct-u-marginTop10" th:href="@{/shop}" ><span>Purchase this fish now  <i
+                                    class="fa fa-location-arrow"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- latest photo component -->
+    <section class="ct-u-paddingBottom80">
+        <div class="container">
+            <div class="row">
+
+                <div class="ct-sectionHeader">
+                    <h2>Latest Photos</h2>
+                    <h3>Types of Species</h3>
+                </div>
+
+                <div class="col-md-4 ct-u-paddingBottom30 ct-photoGallery-small">
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-4 col-xs-12">
+                            <a th:href="@{/images/content/small-photo-01-big.png}" class="ct-js-magnificPopupImage">
+                                <div class="ct-imageOverlay-container ct-u-marginBottom30 animated" data-fx="flipInX">
+                                    <div class="ct-imageButton"></div>
+                                    <img th:src="@{/images/content/small-photo-01.png}" alt="Small Image">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-12 col-sm-4 col-xs-12">
+                            <a th:href="@{/images/content/small-photo-02-big.png}" class="ct-js-magnificPopupImage">
+                                <div class="ct-imageOverlay-container ct-u-marginBottom30 animated" data-fx="flipInX">
+                                    <div class="ct-imageButton"></div>
+                                    <img th:src="@{/images/content/small-photo-02.png}" alt="Small Image">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-12 col-sm-4 col-xs-12">
+                            <a th:href="@{/images/content/small-photo-03-big.png}" class="ct-js-magnificPopupImage">
+                                <div class="ct-imageOverlay-container animated" data-fx="flipInX">
+                                    <div class="ct-imageButton"></div>
+                                    <img th:src="@{/images/content/small-photo-03.png}" alt="Small Image">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 ct-u-paddingBottom30 ct-photoGallery-large">
+                    <a th:href="@{/images/content/large-photo-big.png}" class="ct-js-magnificPopupImage">
+                        <div class="ct-imageOverlay-container">
+                            <div class="ct-imageButton"></div>
+                            <div class="ct-imageOverlay ct-img100">
+                                <div class="ct-imageOverlay-text">
+                                    <h3 class="text-center text-uppercase ct-fw-300">LONG FIN</h3>
+                                    <h3 class="text-center text-uppercase ct-fw-300"><span
+                                            class="ct-fw-500">ZEBRA DAN</span></h3>
+                                    <h3 class="text-center text-uppercase ct-fw-300">FISH</h3>
+                                </div>
+                            </div>
+                            <img th:src="@{/images/content/large-photo.png}" alt="Large Image">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- testimonials -->
+    <section class="ct-u-paddingTop40">
+        <div class="container">
+            <div class="ct-sectionHeader">
+                <h2>Testimonials</h2>
+                <h3>See What Clients Say</h3>
+            </div>
+
+            <div class="ct-testimonials">
+
+                <div class="tab-content ct-u-paddingBottom50">
+                    <div role="tabpanel" class="tab-pane row" id="testimonials-01">
+                        <div class="col-sm-2 hidden-xs">
+                            <div class="ct-quoteIcons"><i class="fa fa-user"></i></div>
+                        </div>
+                        <div class="col-sm-10 ct-u-paddingBoth10 animated fadeIn">
+                            <p class="ct-fw-400 ct-u-marginBottom0">"A beautiful young Rosy Barbs of undetermined
+                                gender. The Rosy Barbs and several other Aqua Barbs are usually for sale on this page.
+                                The Rosy Barbs and several other Aqua Barbs are usually for sale on this page."</p>
+                            <span class="ct-u-size18 ct-fw-600"> - Rosy Barbs</span>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane active row" id="testimonials-02">
+                        <div class="col-sm-2 hidden-xs">
+                            <div class="ct-quoteIcons"><i class="fa fa-user"></i></div>
+                        </div>
+                        <div class="col-sm-10 ct-u-paddingBoth10 animated fadeIn">
+                            <p class="ct-fw-400 ct-u-marginBottom0">"We have come to rely on FishTank for the quality
+                                and diversity of the animals and services they provide. From helping us to acquire
+                                unique and difficult to find exhibit specimens through methods."</p>
+                            <span class="ct-u-size18 ct-fw-600"> - Anna Ferguson</span>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane row" id="testimonials-03">
+                        <div class="col-sm-2 hidden-xs">
+                            <div class="ct-quoteIcons"><i class="fa fa-user"></i></div>
+                        </div>
+                        <div class="col-sm-10 ct-u-paddingBoth10 animated fadeIn">
+                            <p class="ct-fw-400 ct-u-marginBottom0">"FishTank offers the ultimate pet shop experience.
+                                It really is a paradise for pets and pet owners.
+                                We have all the pet supplies, pet food, toys and accessories you and your pet need at
+                                great value prices."</p>
+                            <span class="ct-u-size18 ct-fw-600"> - FishTank</span>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane row" id="testimonials-04">
+                        <div class="col-sm-2 hidden-xs">
+                            <div class="ct-quoteIcons"><i class="fa fa-user"></i></div>
+                        </div>
+                        <div class="col-sm-10 ct-u-paddingBoth10 animated fadeIn">
+                            <p class="ct-fw-400 ct-u-marginBottom0">"Duis eu venenatis uturipis, uaiteui mu uopre itiium
+                                imetiusi. Nuillam iquiiis urt lacus faucimu bustum.
+                                Duis eu venenatis uturipis, uaiteui mu uopre itiium imetiusi. Nuillam iquiiis urt lacus
+                                faucimu bustum."</p>
+                            <span class="ct-u-size18 ct-fw-600"> - Janet Dolorison</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <ul class="list-unstyled" role="tablist">
+                        <li role="presentation" class="col-xs-3"><a th:href="@{#testimonials-01}" role="tab"
+                                                                    data-toggle="tab"><img class="img-responsive"
+                                                                                           draggable="false"
+                                                                                           th:src="@{/images/content/testimonials-01.jpg}"
+                                                                                           alt="Team Member"></a></li>
+                        <li role="presentation" class="col-xs-3 active"><a th:href="@{#testimonials-02}" role="tab"
+                                                                           data-toggle="tab"><img class="img-responsive"
+                                                                                                  th:src="@{/images/content/testimonials-02.jpg}"
+                                                                                                  alt="Team Member"></a>
+                        </li>
+                        <li role="presentation" class="col-xs-3"><a th:href="@{#testimonials-03}" role="tab"
+                                                                    data-toggle="tab"><img class="img-responsive"
+                                                                                           th:src="@{/images/content/testimonials-03.jpg}"
+                                                                                           alt="Team Member"></a></li>
+                        <li role="presentation" class="col-xs-3"><a th:href="@{#testimonials-04}" role="tab"
+                                                                    data-toggle="tab"><img class="img-responsive"
+                                                                                           th:src="@{/images/content/testimonials-04.jpg}"
+                                                                                           alt="Team Member"></a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div th:replace="fragments/footer-fragment :: logoslider"></div>
+
+    <div th:replace="fragments/footer-fragment :: footerlist"></div>
+
+    <div th:replace="fragments/footer-fragment :: pageup"></div>
+
+</div>
+
+<!-- JavaScripts -->
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery.easing.1.3.js}"></script>
+<script th:src="@{/js/device.min.js}"></script>
+<script th:src="@{/js/jquery.browser.min.js}"></script>
+<script th:src="@{/js/snap.min.js}"></script>
+<script th:src="@{/js/jquery.appear.js}"></script>
+
+<script th:src="@{/js/logos/logo-FISHtank.js}"></script>
+<script th:src="@{/js/logos/logo-FISHtank.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+
+<script th:src="@{/js/ct-mediaSection/jquery.stellar.min.js}"></script>
+<script th:src="@{/js/ct-mediaSection/init.js}"></script>
+
+<script th:src="@{/js/magnific-popup/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{/js/magnific-popup/init.js}"></script>
+
+<script th:src="@{/js/flexslider/jquery.flexslider-min.js}"></script>
+<script th:src="@{/js/flexslider/init.js}"></script>
+
+
+</body>
+</html>

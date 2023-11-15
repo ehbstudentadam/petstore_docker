@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]>
+<html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="description" content="FishTank">
+    <meta name="author" content="CreateIT">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>FishTank</title>
+
+    <link rel="shortcut icon" th:href="@{/images/content/icon.ico}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+
+
+    <!--[if lt IE 9]>
+    <script th:src="@{/bootstrap/js/html5shiv.min.js}"></script>
+    <script th:src="@{/bootstrap/js/respond.min.js}"></script>
+    <![endif]-->
+
+    <script th:src="@{/js/modernizr.custom.js}"></script>
+
+</head>
+<body class="cssAnimate">
+
+<!-- :mobile Menu: -->
+<div th:replace="fragments/navbar-mobile-fragment :: menu"></div>
+
+<!--:mobile navbar: -->
+<div th:replace="fragments/navbar-mobile-fragment :: navbar"></div>
+
+<!--:wrapper: -->
+<div id="ct-js-wrapper" class="ct-pageWrapper">
+
+    <!-- :navbar: -->
+    <nav th:replace="fragments/navbar-normal-fragment"></nav>
+
+    <!--:header: -->
+    <header class="ct-headerMotive">
+        <div class="container">
+            <p class="text-uppercase"><a th:href="@{/index}">Home</a><i class="fa fa-chevron-right"
+                                                                            style="padding: 10px 10px"></i>About Us</p>
+        </div>
+    </header>
+
+
+    <div class="container">
+        <h3 class="text-uppercase ct-u-paddingTop60 ct-u-paddingBottom30 ct-u-marginBoth0">About US</h3>
+        <p class="ct-u-paddingBottom60">FishTank offers the ultimate pet shop experience. It really is a paradise for
+            pets and pet owners. We have all the pet supplies, pet food, toys and accessories you and
+            your pet need at great value prices. All our store colleagues are fully trained in pet care and dedicated to
+            the welfare of your animals, with most of them being experienced pet owners.
+            So when you are a new owner or an expert, our store colleagues are on hand to help you make the right
+            choices. We also have a fantastic range of free, informative care for you to take away,
+            offering help and advice on how to look after your pet.</p>
+    </div>
+
+    <section class="ct-u-motiveLight2--bg ct-u-paddingBoth20">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 ct-u-paddingBoth20">
+                    <h4 class="text-uppercase ct-u-size24 ct-fw-600 ct-u-doubleBorderBottom ct-u-paddingBottom20">why
+                        choose us</h4>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="ct-iconBox ct-iconBox--leftIcon">
+                                <i class="ct-u-motive ct-u-size50 fa fa-comments"></i>
+                                <h4 class="text-uppercase ct-fw-600 ct-u-size18">Care Advice</h4>
+                                <p>Lorem ipsum dolor sit amet, coinsectei tur adipiscing elit. Proin lobortis quaiu sit
+                                    amet turpis imperdiet finibus. </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="ct-iconBox ct-iconBox--leftIcon">
+                                <i class="ct-u-motive ct-u-size50 fa fa-heart"></i>
+                                <h4 class="text-uppercase ct-fw-600 ct-u-size18">Care Advice</h4>
+                                <p>Lorem ipsum dolor sit amet, coinsectei tur adipiscing elit. Proin lobortis quaiu sit
+                                    amet turpis imperdiet finibus. </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="ct-iconBox ct-iconBox--leftIcon">
+                                <i class="ct-u-motive ct-u-size50 fa fa-bug"></i>
+                                <h4 class="text-uppercase ct-fw-600 ct-u-size18">Care Advice</h4>
+                                <p>Lorem ipsum dolor sit amet, coinsectei tur adipiscing elit. Proin lobortis quaiu sit
+                                    amet turpis imperdiet finibus. </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="ct-iconBox ct-iconBox--leftIcon">
+                                <i class="ct-u-motive ct-u-size50 fa fa-bars"></i>
+                                <h4 class="text-uppercase ct-fw-600 ct-u-size18">Care Advice</h4>
+                                <p>Lorem ipsum dolor sit amet, coinsectei tur adipiscing elit. Proin lobortis quaiu sit
+                                    amet turpis imperdiet finibus. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 ct-u-paddingBoth20">
+                    <h4 class="text-uppercase ct-u-size24 ct-fw-600 ct-u-doubleBorderBottom ct-u-paddingBottom20">
+                        Delivery Information</h4>
+                    <img class="ct-u-paddingTop10 ct-u-paddingBottom20" th:src="@{/images/content/delivery-01.png}"
+                         alt="Info">
+                    <h4 class="text-uppercase ct-fw-600 ct-u-size18">We accept orders wordwide</h4>
+                    <p>Lorem ipsum dolor sit amet, coinsecteui et tur adipiscing elit. Proin lobortis quamu sit amet
+                        turpis imperdiet finibus.</p>
+                    <p>Donec urna risus, eleifend et leo at, etaimu pharetra dictum ipurus. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="ct-u-paddingBoth60 ct-u-motiveLight2--bg">
+        <div class="container">
+            <div class="ct-verticalRoundedImage">
+                <div class="row">
+                    <div class="ct-u-marginTop30">
+                        <div class="col-sm-4 col-xs-7 ct-u-doubleBorderTop">
+                            <h3 class="text-uppercase">the beauty of the sea</h3>
+                        </div>
+                        <div class="col-sm-4 col-sm-push-4 col-xs-5"><img
+                                th:src="@{/images/content/large-rounded01.png}" alt="Image Rounded"></div>
+                        <div class="col-sm-4 col-sm-pull-4 col-xs-12 ct-u-doubleBorderTop ct-u-paddingBoth40">
+                            <h5 class="text-uppercase ct-fw-600">We have tropical snails since june</h5>
+                            <p>Lorem ipsum dolor sit amet, coinsecteui tur adipiscing esi elit. Proin lobortis quamu sit
+                                amet turpis finibus.</p>
+                            <p>Donec urna risus, eleifend et leo at, etai phareitra dictumi ipurus. Nami non nuinc sed
+                                orci mollis bibndum sit amet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ct-verticalRoundedImage ct-u-paddingTop20 text-right">
+                <div class="row">
+                    <div class="col-sm-4 col-xs-5"><img th:src="@{/images/content/large-rounded02.png}"
+                                                        alt="Image Rounded"></div>
+                    <div class="ct-u-marginTop30">
+                        <div class="col-sm-4 col-sm-push-4 col-xs-7 ct-u-doubleBorderTop">
+                            <h3 class="text-uppercase">black moor goldfish</h3>
+                        </div>
+                        <div class="col-sm-4 col-sm-pull-4 col-xs-12 ct-u-doubleBorderTop ct-u-paddingBoth40">
+                            <h5 class="text-uppercase ct-fw-600">New tropical fish added to our store</h5>
+                            <p>Lorem ipsum dolor sit amet, coinsecteui tur adipiscing esi elit. Proin lobortis quamu sit
+                                amet turpis finibus.</p>
+                            <p>Donec urna risus, eleifend et leo at, etai phareitra dictumi ipurus. Nami non nuinc sed
+                                orci mollis bibndum sit amet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="ct-promoSection ct-u-paddingBottom100">
+        <div class="container">
+            <img class="ct-u-paddingBoth30" th:src="@{/images/content/promo.png}" alt="Patrick Star">
+            <div class="ct-pageSectionHeader ct-fw-300">
+                <h4 class="ct-fw-300 ct-u-marginBottom0">We Have <span>New Accessories</span></h4>
+                <h2><span>(012)</span> 345-6789</h2>
+                <a th:href="@{/shop}" class="btn btn-motive"><span>Purchase Now  <i
+                        class="fa fa-location-arrow"></i></span></a>
+            </div>
+        </div>
+    </section>
+
+
+    <div th:replace="fragments/footer-fragment :: logoslider"></div>
+
+    <div th:replace="fragments/footer-fragment :: footerlist"></div>
+
+    <div th:replace="fragments/footer-fragment :: pageup"></div>
+
+</div>
+
+
+<!-- JavaScripts -->
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery.easing.1.3.js}"></script>
+<script th:src="@{/js/device.min.js}"></script>
+<script th:src="@{/js/jquery.browser.min.js}"></script>
+<script th:src="@{/js/snap.min.js}"></script>
+<script th:src="@{/js/jquery.appear.js}"></script>
+
+<script th:src="@{/js/logos/logo-FISHtank.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+
+<script th:src="@{/js/ct-mediaSection/jquery.stellar.min.js}"></script>
+<script th:src="@{/js/ct-mediaSection/init.js}"></script>
+
+<script th:src="@{/js/magnific-popup/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{/js/magnific-popup/init.js}"></script>
+
+<script th:src="@{/js/flexslider/jquery.flexslider-min.js}"></script>
+<script th:src="@{/js/flexslider/init.js}"></script>
+
+
+</body>
+</html>

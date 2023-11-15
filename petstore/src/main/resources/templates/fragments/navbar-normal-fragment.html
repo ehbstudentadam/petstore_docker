@@ -1,0 +1,47 @@
+<nav class="navbar ct-navbar navbar-default yamm ct-navbar--fadeIn" role="navigation">
+    <div class="container">
+        <div class="ct-navbarContainer">
+            <div class="navbar-header">
+                <a class="navbar-brand" th:href="@{/index}"><img th:src="@{/images/content/logotext.png}"
+                                                                  alt="FISHtank"></a> <!--  +  -->
+            </div>
+
+            <ul class="nav navbar-nav">
+                <li><a th:href="@{/index}">Home</a></li>
+                <li><a th:href="@{/shop}">Shop</a></li>
+                <li><a th:href="@{/about}">About</a></li>
+                <li><a th:href="@{/contact}">Contact Us</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav yamm ct-navbar--right">
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" th:href="@{/checkout}" role="button" aria-expanded="true">
+                        <div class="ct-shopIcon">Shopping Cart &nbsp;&nbsp;<i class="fa fa-shopping-cart"></i></div>
+                    </a>
+                    <ul class="dropdown-menu ct-dropdown-menu" style="padding: 0 30px 20px 30px"  th:if="${session.shoppingCart?.orderItems != null and session.shoppingCart.orderItems.size() > 0}">
+                        <li th:each="item: ${session.shoppingCart?.orderItems}" >
+                            <div class="row">
+                                <div class="col-sm-2 bg2 text-left section small   ct-u-borderLeftGrayLighter ct-u-borderBottom ct-u-paddingBoth5 ">
+                                    <a th:text="${item.quantity}"></a>
+                                </div>
+                                <div class="col-sm-6 bg2 text-left section small   ct-u-borderBottom ct-u-paddingBoth5" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    <a th:text="${item.item.itemName}"></a>
+                                </div>
+                                <div class="col-sm-2 bg2 text-left section small   ct-u-borderBottom ct-u-paddingBoth5 ">
+                                    <a th:text="${item.item.itemPrice * item.quantity}"></a>
+                                </div>
+                                <div class="col-sm-2 bg2 text-left section small   ct-u-borderBottom ct-u-borderRightGrayLighter ct-u-paddingBoth5 ">
+                                    <form th:action="@{/shop}" method="post">
+                                        <input type="hidden" name="removeItemId" th:value="${item.item.id}" />
+                                        <button type="submit" style="border: 0; height: 33px; width: 27px"><i class="fa fa-trash-o"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li><a th:href="@{/account}">My Account</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

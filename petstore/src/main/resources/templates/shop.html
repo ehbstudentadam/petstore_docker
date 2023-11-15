@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]>
+<html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="description" content="FishTank">
+    <meta name="author" content="CreateIT">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>FishTank</title>
+
+    <link rel="shortcut icon" th:href="@{/images/content/icon.ico}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+
+
+    <!--[if lt IE 9]>
+    <script th:src="@{/bootstrap/js/html5shiv.min.js}"></script>
+    <script th:src="@{/bootstrap/js/respond.min.js}"></script>
+    <![endif]-->
+
+    <script th:src="@{/js/modernizr.custom.js}"></script>
+
+
+</head>
+<body class="cssAnimate">
+
+<!-- :mobile Menu: -->
+<div th:replace="fragments/navbar-mobile-fragment :: menu"></div>
+
+<!--:mobile navbar: -->
+<div th:replace="fragments/navbar-mobile-fragment :: navbar"></div>
+
+<!--:wrapper: -->
+<div id="ct-js-wrapper" class="ct-pageWrapper">
+
+    <!-- :navbar: -->
+    <nav th:replace="fragments/navbar-normal-fragment"></nav>
+    <!--:header: -->
+    <header class="ct-headerMotive">
+        <div class="container">
+            <p class="text-uppercase"><a th:href="@{index}">Home</a><i class="fa fa-chevron-right"
+                                                                       style="padding: 10px 10px"></i>Shop
+            </p>
+        </div>
+    </header>
+
+    <section class="ct-u-paddingBottom10">
+        <div class="container">
+
+            <div class="ct-pageSectionHeader ct-u-paddingBoth50">
+                <h3 class="text-uppercase ct-u-size60 text-center">Fish Tank Shop</h3>
+            </div>
+            <div class="ct-blog ct-blog-withSidebar ct-u-paddingBottom70">
+                <div class="row">
+                    <div class="col-sm-9 col-sm-push-3">
+                        <div class="ct-u-borderBottomGrayLighter ct-u-paddingBottom40 ct-blog-withSidebars--posts">
+                        </div>
+                        <!--th:if="${item.itemCategory.name == 'ANIMALS'}"-->
+
+                        <div class="ct-u-borderBottomGrayLighter ct-u-paddingBoth40 shop-item" th:each="item: ${items}"
+                             th:data-category-name="${item.itemCategory.name}">
+                            <div th:each="itemtag: ${item.tags}">
+                                <span style="display: none" th:data-itemtag="${itemtag.tagName}"></span>
+                                <!--<p th:text="${itemtag.tagName}"></p>-->
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <img th:src="${item.imageData[0].imageUrl}"
+                                         th:alt="${item.imageData[0].imageUrl}">
+                                </div>
+                                <div class="col-xs-6">
+                                    <a th:href="@{#}"><h5 class="ct-fw-600" th:text="${item.itemName}"></h5></a>
+                                    <div class="ct-starRating">
+                                        <span th:if="${item.itemRating > 0 }"><i class="fa fa-star"></i></span>
+                                        <span th:if="${item.itemRating < 0 }"><i class="fa-star-empty"></i></span>
+                                        <span th:if="${item.itemRating > 1 }"><i class="fa fa-star"></i></span>
+                                        <span th:if="${item.itemRating < 1 }"><i class="fa-star-empty"></i></span>
+                                        <span th:if="${item.itemRating > 2 }"><i class="fa fa-star"></i></span>
+                                        <span th:if="${item.itemRating < 2 }"><i class="fa-star-empty"></i></span>
+                                        <span th:if="${item.itemRating > 3 }"><i class="fa fa-star"></i></span>
+                                        <span th:if="${item.itemRating < 3 }"><i class="fa-star-empty"></i></span>
+                                        <span th:if="${item.itemRating > 4 }"><i class="fa fa-star"></i></span>
+                                        <span th:if="${item.itemRating < 4 }"><i class="fa-star-empty"></i></span>
+                                    </div>
+                                    <p th:text="${item.itemDetails}"></p>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="d-flex flex-row align-items-center mb-1">
+                                        <h4 class="mb-1 me-1" th:text="'$' + ${item.itemPrice}"></h4>
+                                        <span class="text-danger"><s
+                                                th:text="'$' + ${item.itemPrice + (item.itemPrice/100)*10}"></s></span>
+                                    </div>
+                                    <h6 class="text-success ct-u-paddingBottom15">Free shipping</h6>
+                                    <form th:action="@{/shop}" method="post">
+                                        <input type="hidden" name="addItemId" th:value="${item.id}" />
+                                        <button type="submit" class="btn btn-motive">Add to Cart</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ct-u-borderBottomGrayLighter ct-u-paddingBoth40 ct-blog-item--quote">
+                            <p class="ct-fw-400 ct-u-marginBottom0">"Duis eu venenatis uturipis, uaiteui mu uopre
+                                itiium
+                                imetiusi. Nuillam iquiiis urt lacus faucimu bustum.
+                                Duis eu venenatis uturipis, uaiteui mu uopre itiium imetiusi. Nuillam iquiiis urt
+                                lacus
+                                faucimu bustum."</p>
+                            <span class="ct-u-size18 ct-fw-600"> - Janet Dolorison</span>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-3 col-sm-pull-9">
+                        <div class="ct-inputSearch ct-u-marginBottom40">
+                            <input id="search-input" type="text" placeholder="Search..." value="">
+                            <button class="search-button" type="button"><i class="fa fa-search"></i></button>
+                        </div>
+
+                        <h5 class="text-uppercase ct-fw-600 ct-u-paddingBottom15 ct-u-borderBottomGrayLighter">
+                            Categories</h5>
+                        <ul class="ct-simpleList list-unstyled ct-u-paddingTop10 ct-u-paddingBottom40">
+                            <li th:each="category: ${categories}" th:data-category-id="${category.name}">
+                                <a th:href="@{#}" class="category-link">
+                                    <i class="fa fa-chevron-right"></i>
+                                    <span th:text="${category.name}"></span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <h5 class="text-uppercase ct-fw-600 ct-u-paddingBottom15 ct-u-borderBottomGrayLighter">
+                            Tags</h5>
+                        <div class="ct-u-paddingTop10 ct-u-paddingBottom40">
+                            <a th:href="@{#}" th:each="tag: ${tags}" th:data-tag-id="${tag.tagName}" class="tag-link">
+                                <span class="ct-tagLight" th:text="${tag.tagName}"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div th:replace="fragments/footer-fragment :: logoslider"></div>
+
+    <div th:replace="fragments/footer-fragment :: footerlist"></div>
+
+    <div th:replace="fragments/footer-fragment :: pageup"></div>
+
+</div>
+
+<!-- JavaScripts -->
+
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery.easing.1.3.js}"></script>
+<script th:src="@{/js/device.min.js}"></script>
+<script th:src="@{/js/jquery.browser.min.js}"></script>
+<script th:src="@{/js/snap.min.js}"></script>
+<script th:src="@{/js/jquery.appear.js}"></script>
+
+<script th:src="@{/js/logos/logo-FISHtank.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+
+<script th:src="@{/js/ct-mediaSection/jquery.stellar.min.js}"></script>
+<script th:src="@{/js/ct-mediaSection/init.js}"></script>
+
+<script th:src="@{/js/magnific-popup/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{/js/magnific-popup/init.js}"></script>
+
+<script th:src="@{/js/flexslider/jquery.flexslider-min.js}"></script>
+<script th:src="@{/js/flexslider/init.js}"></script>
+
+<script>
+    $(document).ready(function () {
+        var tagList = [];
+        var categoryToShow = ''; // Variable to store the currently displayed category
+
+        // Add a click event for the search button
+        $(".search-button").click(function () {
+            var searchTerm = $("#search-input").val().toLowerCase();
+
+            filterItems(searchTerm);
+        });
+
+        $(".category-link").click(function () {
+            // Get the category ID from the clicked element's data attribute
+            var categoryId = $(this).closest("li").data("category-id");
+
+            $(".category-link").removeClass("selected-category");
+            $(this).addClass("selected-category");
+
+            categoryToShow = categoryId;
+            filterItems('');
+        });
+
+        $(".tag-link").click(function () {
+            // Get the category ID from the clicked element's data attribute
+            var tagId = $(this).closest("a").data("tag-id");
+
+            const index = tagList.indexOf(tagId);
+
+            if (index === -1) {
+                // Element is not in the array, so push it.
+                tagList.push(tagId);
+                $(this).children("span").css("color", "#1f8bf3");
+                $(this).children("span").css("border-color", "#1f8bf3");
+            } else {
+                // Element is already in the array, so remove it.
+                tagList.splice(index, 1);
+                $(this).children("span").css("color", "#4c505e");
+                $(this).children("span").css("border-color", "#eeeeee");
+            }
+
+            filterItems('');
+            console.log(tagList);
+        });
+
+        function filterItems(searchTerm) {
+            $(".shop-item").each(function () {
+                var itemCategoryName = $(this).data("category-name");
+                var tagValues = [];
+                var itemName = $(this).find("h5").text().toLowerCase(); // Get the item name for searching
+
+                $(this).find("span:hidden").each(function () {
+                    tagValues.push($(this).data("itemtag"));
+                });
+
+                if (
+                    (categoryToShow === '' || itemCategoryName === categoryToShow) &&
+                    (tagList.length === 0 || tagValues.some(tag => tagList.indexOf(tag) !== -1)) &&
+                    (searchTerm === '' || itemName.includes(searchTerm))
+                ) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
